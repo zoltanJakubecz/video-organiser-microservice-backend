@@ -5,10 +5,7 @@ import com.jakuza.videoservice.model.VideoWithRecommendationsDTO;
 import com.jakuza.videoservice.repository.VideoRepository;
 import com.jakuza.videoservice.service.RecommendationServiceCaller;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,10 +28,17 @@ public class VideoController {
         return videoRepository.findAll();
     }
 
+
+    @PostMapping
+    public Video addVideo(@RequestBody Video video){
+        log.info(video.getName() + "added to database");
+        return videoRepository.save(video);
+    }
+
     @GetMapping("/{id}")
     public VideoWithRecommendationsDTO getRecommendationsByVideo(@PathVariable("id") Long videoId){
         return VideoWithRecommendationsDTO.builder()
-                .video(videoRepository.getOne(videoId))
+                .video(videoRepository.findById(videoId).get())
                 .recommendCallResults(recommendationServiceCaller.getRecommendationListByVideo(videoId))
                 .build();
     }
