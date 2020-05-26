@@ -1,4 +1,4 @@
-package com.jakuza.videoservice;
+package com.jakuza.videoservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
