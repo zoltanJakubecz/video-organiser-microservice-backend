@@ -21,5 +21,19 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
 
         recommendationRepository.save(recommendation1);
+        Recommendation recommendation2 = Recommendation.builder()
+                .rating(2)
+                .comment("Not that bad")
+                .videoId(1L)
+                .build();
+
+        recommendationRepository.save(recommendation2);
+        Recommendation recommendation3 = Recommendation.builder()
+                .rating(3)
+                .comment("Not as bad as that")
+                .videoId(2L)
+                .build();
+
+        recommendationRepository.save(recommendation3);
     }
 }
