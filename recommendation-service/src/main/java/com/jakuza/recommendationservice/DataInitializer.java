@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -18,6 +20,7 @@ public class DataInitializer implements CommandLineRunner {
                 .rating(3)
                 .comment("Not 2 bad")
                 .videoId(1L)
+                .addedTime(LocalDateTime.now())
                 .build();
 
         recommendationRepository.save(recommendation1);
@@ -25,6 +28,7 @@ public class DataInitializer implements CommandLineRunner {
                 .rating(2)
                 .comment("Not that bad")
                 .videoId(1L)
+                .addedTime(LocalDateTime.now())
                 .build();
 
         recommendationRepository.save(recommendation2);
@@ -32,6 +36,7 @@ public class DataInitializer implements CommandLineRunner {
                 .rating(3)
                 .comment("Not as bad as that")
                 .videoId(2L)
+                .addedTime(LocalDateTime.now())
                 .build();
 
         recommendationRepository.save(recommendation3);

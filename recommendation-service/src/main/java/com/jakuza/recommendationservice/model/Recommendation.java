@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -25,5 +26,7 @@ public class Recommendation {
     private String comment;
 
     private Long videoId;
+
+    private LocalDateTime addedTime;
 
 }
