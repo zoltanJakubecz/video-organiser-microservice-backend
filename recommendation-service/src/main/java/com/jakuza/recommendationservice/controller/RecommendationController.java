@@ -21,7 +21,7 @@ public class RecommendationController {
         return recommendationRepository.save(recommendation);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/video/{id}")
     public List<Recommendation> getRecommendationsByVideo(@PathVariable("id") Long videoId){
         return recommendationRepository.findAllByVideoIdEquals(videoId);
     }

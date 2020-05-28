@@ -24,7 +24,10 @@ public class RecommendationServiceCaller {
     private String baseUrl;
 
     public List<RecommendCallResult> getRecommendationListByVideo(Long id){
-        return Arrays.asList(Objects.requireNonNull(restTemplate.getForEntity(baseUrl + "/" + id, RecommendCallResult[].class).getBody()));
+        return Arrays.asList(Objects.requireNonNull(restTemplate.getForEntity(baseUrl + "/video/" + id, RecommendCallResult[].class).getBody()));
     }
 
+    public RecommendCallResult createRecommendation(RecommendCallResult recommendCallResult){
+        return restTemplate.postForObject(baseUrl, recommendCallResult, RecommendCallResult.class);
+    }
 }

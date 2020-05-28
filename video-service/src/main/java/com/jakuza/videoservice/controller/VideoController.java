@@ -1,5 +1,6 @@
 package com.jakuza.videoservice.controller;
 
+import com.jakuza.videoservice.model.RecommendCallResult;
 import com.jakuza.videoservice.model.Video;
 import com.jakuza.videoservice.model.VideoWithRecommendationsDTO;
 import com.jakuza.videoservice.repository.VideoRepository;
@@ -41,6 +42,11 @@ public class VideoController {
                 .video(videoRepository.findById(videoId).get())
                 .recommendCallResults(recommendationServiceCaller.getRecommendationListByVideo(videoId))
                 .build();
+    }
+
+    @PostMapping("/recom")
+    public RecommendCallResult addRecommendation(@RequestBody RecommendCallResult recommendCallResult){
+        return recommendationServiceCaller.createRecommendation(recommendCallResult);
     }
 
 }

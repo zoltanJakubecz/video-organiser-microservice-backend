@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,4 +15,5 @@ public class RecommendCallResult {
     private int rating;
     private String comment;
     private Long videoId;
+    private LocalDateTime addedTime;
 }
